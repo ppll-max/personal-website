@@ -1,0 +1,500 @@
+/* ============================================================
+   Personal Website — Complete Stylesheet
+   Blue-grey color scheme, card-based layout, 720px max-width,
+   responsive at 600px breakpoint.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1. CSS Reset + Variables
+   ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #2c5282;
+  --color-primary-light: #5a9bd5;
+  --color-accent: #a0c4e8;
+  --color-bg: #edf2f7;
+  --color-card: #ffffff;
+  --color-text-dark: #1a202c;
+  --color-text-mid: #4a5568;
+  --color-text-light: #718096;
+  --color-text-muted: #a0aec0;
+  --color-border: #e2e8f0;
+  --color-timeline-line: #e2e8f0;
+  --max-width: 720px;
+  --nav-height: 56px;
+  --radius: 8px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+body {
+  font-family: 'Noto Sans SC', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text-mid);
+  font-size: 13px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  color: var(--color-text-dark);
+  line-height: 1.3;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + 24px) 16px 48px;
+}
+
+/* ------------------------------------------------------------
+   2. Navigation Bar
+   ------------------------------------------------------------ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.nav-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.nav-divider {
+  color: var(--color-accent);
+  font-weight: 300;
+}
+
+.nav-title {
+  font-size: 11px;
+  color: var(--color-accent);
+  font-weight: 300;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.nav-link {
+  font-size: 11px;
+  color: var(--color-accent);
+  transition: color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #fff;
+}
+
+/* ------------------------------------------------------------
+   3. Hero (Personal Statement)
+   ------------------------------------------------------------ */
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 8px 0 24px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 20px;
+}
+
+.hero-avatar {
+  flex-shrink: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+}
+
+.hero-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 2px;
+}
+
+.hero-tagline {
+  font-size: 13px;
+  color: var(--color-primary-light);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.hero-statement {
+  font-size: 12px;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+/* ------------------------------------------------------------
+   4. Card Grid + Skills
+   ------------------------------------------------------------ */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-left-line {
+  border-left: 3px solid var(--color-primary-light);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.card-icon {
+  font-size: 16px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.card-body {
+  font-size: 11px;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+}
+
+.school-name,
+.school-meta,
+.school-detail {
+  margin-bottom: 2px;
+}
+
+.school-detail {
+  color: var(--color-text-light);
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.skill-item + .skill-item {
+  border-top: 1px solid #f7fafc;
+}
+
+.skill-label {
+  font-size: 11px;
+  color: var(--color-text-mid);
+}
+
+.skill-dots {
+  font-size: 10px;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+}
+
+/* ------------------------------------------------------------
+   5. Projects + Timeline + Contact
+   ------------------------------------------------------------ */
+.section {
+  margin-bottom: 16px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-icon {
+  font-size: 16px;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.section-subtitle {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  margin-left: 4px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.project-card {
+  background: var(--color-card);
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.project-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 2px;
+}
+
+.project-meta {
+  font-size: 10px;
+  color: var(--color-text-light);
+  margin-bottom: 4px;
+}
+
+.project-desc {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  border-left: 2px solid var(--color-timeline-line);
+  margin-left: 8px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -29px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.timeline-dot.completed {
+  background: var(--color-primary-light);
+}
+
+.timeline-dot.in-progress {
+  background: #fff;
+  border: 2px solid var(--color-primary-light);
+}
+
+.timeline-dot.future {
+  background: #fff;
+  border: 2px dashed var(--color-text-muted);
+}
+
+.timeline-date {
+  font-size: 10px;
+  color: var(--color-text-light);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.timeline-text {
+  font-size: 11px;
+  color: var(--color-text-mid);
+  font-weight: 500;
+}
+
+.timeline-placeholder .timeline-text {
+  color: var(--color-text-muted);
+}
+
+/* Contact */
+.contact-bar {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 16px;
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  margin-top: 8px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--color-text-mid);
+  transition: color var(--transition);
+}
+
+.contact-item:hover {
+  color: var(--color-primary);
+}
+
+.contact-icon {
+  font-size: 16px;
+}
+
+/* ------------------------------------------------------------
+   6. Footer + Scroll Reveal + Responsive
+   ------------------------------------------------------------ */
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px 16px;
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-statement {
+    max-width: 100%;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .timeline-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card:hover,
+  .project-card:hover {
+    transform: none;
+  }
+}
